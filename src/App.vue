@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="hello">
+        <div v-for="book in Story" :key="book.id">
+            {{ book.title }}
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: "App",
+    data() {
+        return {
+            books: [
+                { id: "1", title: "Truyen Ngan", author: "Danh", isFav: true },
+                { id: "2", title: "Truyen Dai", author: "Dien", isFav: false },
+                { id: "3", title: "Truyen Vui", author: "Duc", isFav: true },
+            ],
+        };
+    },
+    computed: {
+        Story() {
+            return this.books.filter((book) => book.isFav);
+        },
+    },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 24px;
+    color: #2c3e50;
+    margin-top: 60px;
 }
 </style>
