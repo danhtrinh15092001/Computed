@@ -11,16 +11,16 @@ export default {
     name: "App",
     data() {
         return {
-            anime: [
+            animes: [
                 { id: "1", title: "Naruto", author: "Danh", isFav: true },
-                { id: "2", title: "Onepiec", author: "Dien", isFav: false },
+                { id: "2", title: "Onepiece", author: "Dien", isFav: false },
                 { id: "3", title: "DragonBall", author: "Duc", isFav: true },
             ],
         };
     },
     computed: {
         Story() {
-            return this.books.filter((book) => book.isFav);
+            return this.animes.filter((anime) => anime.isFav);
         },
     },
 };
